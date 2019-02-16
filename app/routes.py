@@ -1,7 +1,5 @@
 from flask import render_template, request
 from app import app
-from werkzeug.security import generate_password_hash as hashme
-from werkzeug.security import check_password_hash as checkhash
 from flask_login import current_user, login_user
 from app.models import User
 
@@ -27,7 +25,7 @@ def login():
             if not(user is None) or user.check_password(password):
                 login_user()
             else:
-                print('Invalid username or password')
+                render_template('login.html', error="Invalid password or username.")
     return render_template('login.html')
 
 @app.route('/sign_up', methods=['POST'])
@@ -39,7 +37,8 @@ def sign_up():
             try:
                 username = request.form['username']
                 password = request.form['pass']
-
+                password2 = request.form['repeat-pass']
+                email = request.form['email']
             except:
                 pass
             if username != -1 and password != -1:
