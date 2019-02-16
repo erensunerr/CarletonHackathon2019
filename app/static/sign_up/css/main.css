@@ -218,16 +218,13 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  firstColour: #e8519e;
-  secondColour: #51ff07;
-  background: var(firstColour);
-  background: -webkit-linear-gradient(bottom, var(firstColour), var(secondColour));
-  background: -o-linear-gradient(bottom, var(firstColour), var(secondColour));
-  background: -moz-linear-gradient(bottom, var(firstColour), var(secondColour));
-  background: linear-gradient(bottom, var(firstColour), var(secondColour));
-  opacity: 1;
+  background: #ef6c00;
+  background: -webkit-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: -o-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: -moz-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: linear-gradient(bottom, #ef6c00, #42a5f5);
+  opacity: 0.8;
 }
-
 /*==================================================================
 [ Form ]*/
 
