@@ -1,1 +1,1 @@
-#appname
+from app import app
