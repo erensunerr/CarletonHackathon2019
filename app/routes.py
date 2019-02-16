@@ -6,13 +6,15 @@ from app import app
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['POST','GET'])
+@app.route('/login', methods=["POST","GET"])
 def login():
-    if request.form:
+    try:
         username = request.form['username']
         password = request.form['pass']
-        remember_me = request.form['remember-me']
-        print(username, password, remember_me)
+        
+        return "WIHOO"
+    except:
+        pass
     return render_template('login.html')
 
 @app.route('/sign_up', methods=['POST'])
