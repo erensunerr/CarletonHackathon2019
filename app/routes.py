@@ -8,7 +8,11 @@ def index():
 
 @app.route('/login', methods=['POST','GET'])
 def login():
-
+    if request.form:
+        username = request.form['username']
+        password = request.form['pass']
+        remember_me = request.form['remember-me']
+        print(username, password, remember_me)
     return render_template('login.html')
 
 @app.route('/sign_up', methods=['POST'])
