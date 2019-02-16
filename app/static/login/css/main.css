@@ -149,8 +149,10 @@ iframe {
 }
 
 .errorLine{
-  color: black;
-  font-family: fantasy;
+  color: #ab000d;
+  background-color: #ff6f60;
+  padding: 10px;
+  font-family: serif;
 }
 
 /*//////////////////////////////////////////////////////////////////
