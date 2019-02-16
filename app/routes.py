@@ -12,8 +12,8 @@ def login():
 
 @app.route('/sign_up')
 def sign_up():
-    return render_template('sign_up_page.html')
+    return render_template('sign_up.html')
 
 @app.route('/about')
 def about():
-    return render_template('')
+    return render_template('about.html')
