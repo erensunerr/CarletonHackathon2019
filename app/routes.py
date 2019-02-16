@@ -16,4 +16,4 @@ def sign_up():
 
 @app.route('/about')
 def about():
-    return render_template('')
+    return render_template('about.html')
