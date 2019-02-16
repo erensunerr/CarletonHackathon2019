@@ -1,8 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+from bs4 import BeautifulSoup
+
 GOOGLE_URL = 'www.google.com'
 GOOGLE_SEARCH_URL = 'www.google.com/search?q='
+
 
 class ScrapeEngine:
 
@@ -30,6 +33,10 @@ class ScrapeEngine:
     def google_search(self, query: str):
         self.driver.get(GOOGLE_SEARCH_URL + query)
 
+
+    def keyword_replace(self, keyword: str, html: str):
+        parsed = BeautifulSoup(html, features='html.parser')
+        print(parsed.find_all("div"))
 
 
 
