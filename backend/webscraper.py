@@ -34,15 +34,7 @@ class ScrapeEngine:
         self.driver.get(GOOGLE_SEARCH_URL + query)
 
 
+
     def keyword_replace(self, keyword: str, html: str):
         parsed = BeautifulSoup(html, features='html.parser')
         print(parsed.find_all("div"))
-
-
-
-
-
-
-
-
-
