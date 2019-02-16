@@ -1,26 +1,41 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-options = webdriver.ChromeOptions()
-options.headless = True
+GOOGLE_URL = 'www.google.com'
+GOOGLE_SEARCH_URL = 'www.google.com/search?q='
 
-#chrome_driver_path = '/Users/oscarsplitfire/cuHacking2019/webdriver/chromedriver'
-chrome_driver_path = '../webdriver/chromedriver'
+class ScrapeEngine:
 
-driver = webdriver.Chrome(chrome_driver_path, options=options)
+    driver = None
 
-driver.get("http://www.python.org")
+    def __init__(self):
+        print('constructing')
+        options = webdriver.ChromeOptions()
+        options.headless = True
+
+        # chrome_driver_path = '/Users/oscarsplitfire/cuHacking2019/webdriver/chromedriver'
+        chrome_driver_path = '../webdriver/chromedriver'
+
+        self.driver = webdriver.Chrome(chrome_driver_path, options=options)
+
+    def close(self):
+        self.driver.close()
+
+    def __del__(self):
+        self.close()
+
+    def goto(self, url: str):
+        self.driver.get(url)
+
+    def google_search(self, query: str):
+        self.driver.get(GOOGLE_SEARCH_URL + query)
 
 
-assert "Python" in driver.title
-elem = driver.find_element_by_name("q")
-elem.clear()
-elem.send_keys("pycon")
-elem.send_keys(Keys.RETURN)
 
-print(driver.title)
 
-assert "No results found." not in driver.page_source
 
-driver.close()
+
+
+
+
 
