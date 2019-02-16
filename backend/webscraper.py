@@ -29,13 +29,3 @@ class ScrapeEngine:
 
     def google_search(self, query: str):
         self.driver.get(GOOGLE_SEARCH_URL + query)
-
-
-
-
-
-
-
-
-
-
