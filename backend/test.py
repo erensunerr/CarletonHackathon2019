@@ -2,9 +2,8 @@
 # to be used only by Oscar for testing
 # <3 Oscar
 
-from backend import webscraper
+from backend import scrapeinfo
 
-driver = webscraper.ScrapeEngine()
+#scrapeinfo.init_scrape_info('news', 'https://www.nytimes.com/', 'President Trump')
 
-
-del driver
+scrapeinfo.scrape_info('news')

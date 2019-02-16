@@ -33,8 +33,7 @@ class ScrapeEngine:
     def google_search(self, query: str):
         self.driver.get(GOOGLE_SEARCH_URL + query)
 
+    def init_scrape_info(self, scrapename: str, url: str, *args):
+        self.goto(url)
+        self.driver.find_element_by_xpath('//div[@cl]')
 
-
-    def keyword_replace(self, keyword: str, html: str):
-        parsed = BeautifulSoup(html, features='html.parser')
-        print(parsed.find_all("div"))
