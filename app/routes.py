@@ -8,8 +8,12 @@ def index():
 
 @app.route('/login')
 def login():
-    return render_template('login_page/login.html')
+    return render_template('login.html')
 
 @app.route('/sign_up')
 def sign_up():
-    return render_template('sign_up/sign_up_page.html')
+    return render_template('sign_up_page.html')
+
+@app.route('/about')
+def about():
+    return render_template('')
