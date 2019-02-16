@@ -225,7 +225,7 @@ iframe {
   background: -o-linear-gradient(bottom, var(firstColour), var(secondColour));
   background: -moz-linear-gradient(bottom, var(firstColour), var(secondColour));
   background: linear-gradient(bottom, var(firstColour), var(secondColour));
-  opacity: 0.5;
+  opacity: 1;
 }
 
 /*==================================================================
