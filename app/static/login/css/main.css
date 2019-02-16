@@ -73,7 +73,7 @@ p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: white;
 	margin: 0px;
 }
 
@@ -148,6 +148,12 @@ iframe {
   line-height: 1.5;
 }
 
+.errorLine{
+  color: #ab000d;
+  background-color: #ff6f60;
+  padding: 10px;
+  font-family: serif;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
