@@ -38,8 +38,8 @@ def login():
 @app.route('/sign_up', methods=['POST', 'GET'])
 def display_sign_up():
     return render_template('sign_up.html')
-    
-@app_route('/sign_up_handle')
+
+@app.route('/sign_up_handle')
 def sign_up():
     global db
     username, password, email, password2 = -1, -1, -1, -1
