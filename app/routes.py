@@ -90,3 +90,8 @@ def about():
 @app.route('/form')
 def form():
     return render_template('form.html')
+
+
+@app.route('/base')
+def base():
+    return render_template('base.html')
