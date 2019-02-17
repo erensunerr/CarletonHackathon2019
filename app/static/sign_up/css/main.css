@@ -168,7 +168,12 @@ iframe {
   color: #c87ef0;
 }
 
-
+.errorLine{
+  color: #ab000d;
+  background-color: #ffa4a2;
+  padding: 10px;
+  font-family: serif;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -218,16 +223,13 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  firstColour : #e8519e;
-  secondColour : #51ff07;
-  background: firstColour;
-  background: -webkit-linear-gradient(bottom, firstColour, secondColour);
-  background: -o-linear-gradient(bottom, firstColour, secondColour);
-  background: -moz-linear-gradient(bottom, firstColour, secondColour);
-  background: linear-gradient(bottom, firstColour, secondColour);
-  opacity: 0.2;
+  background: #ef6c00;
+  background: -webkit-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: -o-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: -moz-linear-gradient(bottom, #ef6c00, #42a5f5);
+  background: linear-gradient(bottom, #ef6c00, #42a5f5);
+  opacity: 0.8;
 }
-
 /*==================================================================
 [ Form ]*/
 

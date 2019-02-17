@@ -5,34 +5,34 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{{url_for('static', filename='login/images/icons/favicon.ico')}}"/>
+	<link rel="icon" type="image/png" href='../static/login/images/icons/favicon.ico'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/bootstrap/css/bootstrap.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/fonts/iconic/css/material-design-iconic-font.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/fonts/iconic/css/material-design-iconic-font.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/animate/animate.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/animate/animate.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/css-hamburgers/hamburgers.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/css-hamburgers/hamburgers.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/animsition/css/animsition.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/animsition/css/animsition.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/select2/select2.min.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/select2/select2.min.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/vendor/daterangepicker/daterangepicker.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/vendor/daterangepicker/daterangepicker.css'>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/css/util.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login/css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href='../static/login/css/util.css'>
+	<link rel="stylesheet" type="text/css" href='../static/login/css/main.css'>
 <!--===============================================================================================-->
 </head>
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('{{url_for('static',filename='login/images/bg-01.jpg')}}');">
+		<div class="container-login100" style="background-image: url('../static/login/images/bg-01.jpg')">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action='/login_handle'>
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -50,7 +50,9 @@
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
-
+					<div class="p-b-15">
+						<id class='errorLine'>{{error}}</id>
+					</div>
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
@@ -64,11 +66,12 @@
 						</button>
 					</div>
 
-					<div class="text-center p-t-90">
+					<div class="text-center p-t-20">
 						<a class="txt1" href="#">
 							Forgot Password?
 						</a>
 					</div>
+
 				</form>
 			</div>
 		</div>
@@ -92,7 +95,7 @@
 <!--===============================================================================================-->
 	<script src="{{url_for('static', filename='login/vendor/countdowntime/countdowntime.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="{{url_for('static',filename='login/js/main.js')}}"></script>
 
 </body>
 </html>
