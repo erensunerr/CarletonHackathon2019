@@ -66,15 +66,17 @@ def sign_up():
 
         if not -1 in [username, email, password, password2]:
             # check if user exsits
-            print('user existance check')
             user = User.query.filter_by(username=username).first()
-            if not user:
+
+            if not user:    # if user does not exist, then create
+                # this path leads to success
                 u = User(username=username, email=email)
                 u.set_password(password)
                 db.session.add(u)
                 db.session.commit()
-                return redirect(url_for('/index'))
-            else:
+                return redirect(url_for('index'))
+
+            else:   # else, say it already exists
                 return render_template('sign_up.html', error="Username already taken.")
         else:
             return render_template('sign_up.html', error="Please complete the form.")
