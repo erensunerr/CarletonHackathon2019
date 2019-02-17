@@ -50,7 +50,7 @@
 .title{
   position: absolute;
   text-align: right;
-  right: 25px;
+  right: 100px;
   top:250px;
   color: white;
   font-family: Poppins-SemiBold;
@@ -68,7 +68,7 @@
   width: 170px;
   position: absolute;
   top:300px;
-  left: 40px;
+  left: 70px;
   font-size: 30px;
   border-radius: 30px;
   font-family: Poppins-SemiBold;
