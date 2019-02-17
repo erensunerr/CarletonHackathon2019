@@ -17,18 +17,21 @@ class searcher():
         print(self.image_dir)
 
         platform = ""
+        end = ""
 
         if 'linux' in sys.platform:
-             platform = 'linux'
-        elif 'wind' in sys.platform:
-             platform = 'win'
-        elif 'darwin' in sys.platform:
-             platform = 'mac'
+            platform = 'linux'
+        elif 'win' in sys.platform and 'dar' not in sys.platform:
+            end = '.exe'
+            platform = 'win'
+        elif 'dar' in sys.platform:
+            platform = 'mac'
+
 
         options = webdriver.ChromeOptions()
         if headless:
             options.add_argument('headless')
-        self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver', options=options)
+        self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver' + end, options=options)
 
 
     def __del__(self):
@@ -57,5 +60,4 @@ class searcher():
 
 s = searcher()
 s.upload_image('bottle.bmp')
-
-
+del s
