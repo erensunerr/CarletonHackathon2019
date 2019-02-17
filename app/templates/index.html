@@ -158,9 +158,14 @@
             req.open('POST', 'photo_handle', true);
             req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
             req.send("data="+imageDataURL);
+		
+	function download(file=imageDataURL) {
+	    window.location=file;
+	}
 
         });
     </script>
+    <input type="button" value="Download" onClick="download()">
 </body>
 
 </html>
