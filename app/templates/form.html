@@ -1,0 +1,98 @@
+<html>
+
+<head>
+  <title></title>
+  <style>
+    #home {
+          width: 20px;
+          height: 20px;
+    }
+
+    ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+    }
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover {
+        background-color: forestgreen;
+    }
+
+    h1 {
+      font-family: monospace;
+      font-size: 40px;
+    }
+
+    body {
+      background-image: url("penandpencil.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="base.html"><img src="home.png" id="home"></a></li>
+    <li><a href="index.html">Photo BOOTH</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="register.html">REGISTER/LOG IN</a></li>
+    <li><a href="form.html">CONTACT US</a></li>
+  </ul>
+
+  <form>
+    <center><h1>How did we do? Feedback?</h1></center>
+    <h5>On a one to 5 scale, how easy was it to get around (with 5 being the easiest)?</h5>
+    <input type="radio" name="frequency" value="5" id = "s5">5<br>
+    <input type="radio" name="frequency" value="4" id = "s4">4<br>
+    <input type="radio" name="frequency" value="3" id = "s3">3<br>
+    <input type="radio" name="frequency" value="2" id = "s2">2<br>
+    <input type="radio" name="frequency" value="1" id = "s1">1<br>
+    <br>
+
+    <h5>How did you hear about us?</h5>
+    <select name="desire">
+      <option value="3" id = "d3">One of my friends</option>
+      <option value="2" id = "d2">Online, surfing the web</option>
+      <option value="1" id = "d1">Advertising</option>
+      <option value="0" id = "d0">Other (cuHacking)</option>
+    </select>
+
+    <br>
+    <h5>Enter the date you first used the website</h5>
+    <input type="date" name="preDay" id = "date">
+
+    <br>
+    <h5>What features did you like?</h5>
+    <input type="checkbox" name="hazards" value="1" id = "h1">The photo booth<br>
+    <input type="checkbox" name="hazards" value="3" id = "h3">The beautiful ASCII faces of your devs<br>
+    <input type="checkbox" name="hazards" value="5" id = "h5">This form!<br>
+    <input type="checkbox" name="hazards" value="2" id = "h2">The stunning login page<br>
+    <input type="checkbox" name="hazards" value="4" id = "h4">The fun index page<br>
+
+    <h5>On a one to one hundred scale, how would you rate our page?</h5>
+    0
+    <input type="range" value="50" id = "temp"> 100 <br>
+    <br>
+    <br>
+    <button onclick="results()">SUBMIT FORM</button>
+
+    <!-- Reset the form -->
+    <br><br>
+    <hr>
+    <br>
+    <input type="reset"> the form <br>
+    <br>
+  </form>
+</body>
+</html>
