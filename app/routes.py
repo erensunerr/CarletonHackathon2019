@@ -9,7 +9,6 @@ from app.models import User
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=["GET", "POST"])
 @app.route('/login', methods=["GET"])
 def display_login():
     return render_template('login.html')
@@ -37,6 +36,10 @@ def login():
     return redirect(url_for('index'))
 
 @app.route('/sign_up', methods=['POST', 'GET'])
+def display_sign_up():
+    return render_template('sign_up.html')
+
+@app.route('/sign_up_handle')
 def sign_up():
     global db
     username, password, email, password2 = -1, -1, -1, -1
