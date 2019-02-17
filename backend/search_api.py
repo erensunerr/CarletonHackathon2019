@@ -11,8 +11,10 @@ class searcher():
         - Chrome Webdriver
     """
 
-    def __init__(self, image_dir):
-        self.image_dir = image_dir
+    def __init__(self):
+        os.chdir('../images_backend')
+        self.image_dir = os.getcwd()
+        print(self.image_dir)
         if 'linux' in sys.platform:
              os.chdir('../webdriver/linux')
         elif 'win' in sys.platform:
@@ -49,5 +51,5 @@ class searcher():
         sleep(10)
 
 
-s = searcher("C:\\Users\\geren\\Desktop\\CarletonHackathon2019\\CarletonHackathon2019\\images_backend")
+s = searcher()
 s.upload_image('bottle.bmp')
