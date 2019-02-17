@@ -12,7 +12,6 @@
 						width: 20px;
 						height: 20px;
 			}
-
       ul {
             list-style-type: none;
             margin: 0;
@@ -22,6 +21,7 @@
       }
       li {
           float: left;
+          font-family: sans-serif;
       }
       li a {
           display: block;
@@ -33,11 +33,9 @@
       li a:hover {
           background-color: forestgreen;
       }
-
       table {
          width: 100%;
       }
-
       .button {
           padding: 15px 25px;
           font-size: 24px;
@@ -49,44 +47,43 @@
           border: none;
           border-radius: 15px;
           box-shadow: 0 9px #333;
-
           border-radius: 30px;
           height: 200px;
           width: 200px;
       }
-
       .button:hover {background-color: #3e8e41}
-
       .button:active {
           background-color: #3e8e41;
           box-shadow: 0 5px #222;
           transform: translateY(4px);
       }
-
       .footer {
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
+        height: 30px;
         background-color: forestgreen;
         color: white;
         text-align: center;
       }
-
       .tinylogos {
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 25px;
+      }
+      #ending{
+      margin: 0px;
       }
     </style>
 </head>
 
 <body>
     <ul>
-      <li><a href="../templates/base.html"><img src="../static/home.png" id="home"></a></li>
-      <li><a href="../templates/index.html">Photo BOOTH</a></li>
-      <li><a href="../templates/about.html">ABOUT US</a></li>
-      <li><a href="../templates/login.html">REGISTER/LOG IN</a></li>
-      <li><a href="../templates/form.html">CONTACT US</a></li>
+      <li><a href="base"><img src="../static/home.png" id="home"></a></li>
+      <li><a href="index.html">Photo BOOTH</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="login.html">REGISTER/LOG IN</a></li>
+      <li><a href="form.html">CONTACT US</a></li>
     </ul>
     <table>
       <tr>
@@ -97,12 +94,15 @@
     </table>
 
     <div class="footer">
-      <p align="right">Reach us!  <img class="tinylogos" src="../static/insta.png"> <img class="tinylogos" src="../static/facebook.png"> <img class="tinylogos" src="../static/twitter.png"></p>
+      <p id="ending" align="right">REACH US!&nbsp;&nbsp;&nbsp;
+        <img class="tinylogos" onclick="window.location.href = 'https://www.instagram.com/_allentao_/'" src="../static/insta.png">
+        <img class="tinylogos" onclick="window.location.href = 'https://www.facebook.com'" src="../static/facebook.png">
+        <img class="tinylogos" onclick="window.location.href = 'https://www.twitter.com'" src="../static/twitter.png">
+      </p>
     </div>
     <script>
         // Grab elements, create settings, etc.
         var video = document.getElementById('video');
-
         // Get access to the camera!
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             // Not adding `{ audio: true }` since we only want video now
@@ -139,12 +139,17 @@
         var canvas = document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var video = document.getElementById('video');
-
         // Trigger photo take
         document.getElementById("snap").addEventListener("click", function() {
             context.drawImage(video, 0, 0, 640, 480);
+            var imageDataURL = canvas.toDataURL('image/png');
+            var req = new XMLHttpRequest();
+            req.open('POST', 'photo_handle', true);
+            req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+            req.send("data="+imageDataURL);
         });
     </script>
+
 </body>
 
 </html>
