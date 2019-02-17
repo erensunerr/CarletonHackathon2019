@@ -34,6 +34,8 @@ def photo_handle():
 
 @app.route('/login', methods=["GET"])
 def display_login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('login.html')
 
 
@@ -61,6 +63,8 @@ def login():
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def display_sign_up():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('sign_up.html')
 
 @app.route('/sign_up_handle', methods=['GET', 'POST'])
