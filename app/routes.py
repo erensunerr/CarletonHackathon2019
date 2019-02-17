@@ -35,17 +35,19 @@ def login():
                 return render_template('login.html', error="Invalid password or username.")
     return redirect(url_for('index'))
 
-@app.route('/sign_up', methods=['POST', 'GET'])
+@app.route('/sign_up', methods=['GET', 'POST'])
 def display_sign_up():
     return render_template('sign_up.html')
 
-@app.route('/sign_up_handle')
+@app.route('/sign_up_handle', methods=['GET', 'POST'])
 def sign_up():
     global db
     username, password, email, password2 = -1, -1, -1, -1
     if current_user.is_authenticated:
+        print('user authenticated')
         return redirect(url_for('/index'))
     else:
+        print('first elsed')
         try:
             username = request.form['username']
             password = request.form['pass']
@@ -53,7 +55,12 @@ def sign_up():
             email = request.form['email']
         except:
             pass
+        print('just tried')
+        if not password == password2:
+            return render_template('sign_up.html', error="Passwords do not match.")
+
         if not -1 in [username, email, password, password2]:
+            # check if user exsits
             user = User.query.filter_by(username=username).first()
             if not user:
                 u = User(username=username, email=email)
