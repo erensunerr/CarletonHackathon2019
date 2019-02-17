@@ -9,7 +9,6 @@ from app.models import User
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=["GET", "POST"])
 
 @app.route('/login', methods=["GET"])
 def display_login():
@@ -17,11 +16,7 @@ def display_login():
 
 
 
-@app.route('/login_handle', methods=["POST","GET"])
-
-
 @app.route('/login_handle', methods=["GET", "POST"])
-
 def login():
     username, password = -1, -1
     if current_user.is_authenticated:
@@ -69,7 +64,7 @@ def sign_up():
             return render_template('sign_up.html', error="Passwords do not match.")
 
         if not -1 in [username, email, password, password2]:
-            # check if user exsits
+            # check if user exists
             user = User.query.filter_by(username=username).first()
 
             if not user:    # if user does not exist, then create
