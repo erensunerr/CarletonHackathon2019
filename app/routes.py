@@ -15,20 +15,14 @@ def index():
 @app.route('/photo_handle', methods=["POST"])
 def photo_handle():
     try:
-        data = request.form['data']
-        print('here is DATA:   ', data)
-        fout = open("img-" + str(datetime.utcnow()) + ".png", "wb")
-        data = base64.b64decode(data)
-        print('here is decoded DATA:   ', data)
-    #data = request.form.get("data", True)
-    try:
-        data = request.form['data']
-        print(data)
-        fout = open("img-" + str(datetime.utcnow()) + ".png", "wb")
-        data = base64.b64decode(data)
-        print(data)
-        fout.write(data)
-        fout.close()
+        null, data = request.form['data'].split(',', 1)
+        data = data.replace(' ', '')
+        data = data.replace('\n', '')
+        with open('log.txt', 'w') as fuckbase64:
+            fuckbase64.write(data)
+            fuckbase64.write('\n')
+        with open("img-" + str(datetime.utcnow()) + ".png", "wb") as fout:
+            fout.write(base64.b64decode(data))
     except:
         pass
     return "0"
@@ -121,3 +115,8 @@ def form():
 @app.route('/base')
 def base():
     return render_template('base.html')
+
+
+@app.route('/realIndex', methods=["GET", "POST"])
+def realIndex():
+    return render_template('realIndex.html')

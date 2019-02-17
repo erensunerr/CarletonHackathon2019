@@ -49,15 +49,15 @@ class searcher():
     def text(self):
         return self.driver.text
 
-    def upload_image(self,path):
+    def upload_image(self, path):
         try:
             self.upload_dialog
         except:
             self.__open_image_dialog()
         self.upload_dialog.send_keys(self.image_dir+"/"+path)
-        sleep(10)
+        input()
 
 
 s = searcher()
-s.upload_image('bottle.bmp')
+s.upload_image('teddybear.jpg')
 del s
