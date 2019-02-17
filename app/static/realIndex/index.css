@@ -7,10 +7,7 @@
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   padding: 15px;
-
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -28,4 +25,11 @@
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0.4);
+}
+
+.title{
+  position: absolute;
+  right: 25px;
+  top:200px;
+  color: white;
 }
