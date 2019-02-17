@@ -4,7 +4,7 @@
     <title></title>
     <style>
       body {
-          background-image: url("../static/photoboothbk.jpg");
+          background-image: url("../static/greenscreen.jpg");
           background-repeat: no-repeat;
           background-size: cover;
       }
@@ -34,24 +34,33 @@
           background-color: forestgreen;
       }
 
-      #snap {
-
-      }
-
       table {
          width: 100%;
       }
 
-      #snap {
-        border-radius: 40%;
-        height: 300px;
-        width: 300px;
+      .button {
+          padding: 15px 25px;
+          font-size: 24px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+          color: #fff;
+          background-color: #4CAF50;
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 9px #333;
 
-        background-image: linear-gradient(#ddd, #222);
+          border-radius: 30px;
+          height: 200px;
+          width: 200px;
+      }
 
-        font-size: 60px;
-        font-family: monospace;
+      .button:hover {background-color: #3e8e41}
 
+      .button:active {
+          background-color: #3e8e41;
+          box-shadow: 0 5px #222;
+          transform: translateY(4px);
       }
 
       .footer {
@@ -82,7 +91,7 @@
     <table>
       <tr>
         <td><video id="video" width="640" height="480" autoplay></video></td>
-        <td><button id="snap">Snap Photo</button></td>
+        <td><button id="snap" class="button">Snap Photo</button></td>
         <td><canvas id="canvas" width="640" height="480"></canvas></td>
       </tr>
     </table>
