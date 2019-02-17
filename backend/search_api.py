@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import sys,os
+import sys, os
 from time import sleep
 
 class searcher():
