@@ -80,7 +80,7 @@ class searcher():
         return list(set(q))
 
 s = searcher(headless=False)
-s.upload_image('duck.jpg')
+s.upload_image('teddybear.jpg')
 
 
 print('opening shopping section')
