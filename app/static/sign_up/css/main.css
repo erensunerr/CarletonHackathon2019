@@ -168,7 +168,12 @@ iframe {
   color: #c87ef0;
 }
 
-
+.errorLine{
+  color: #ab000d;
+  background-color: #ffa4a2;
+  padding: 10px;
+  font-family: serif;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
