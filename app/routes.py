@@ -1,5 +1,4 @@
 from flask import render_template, request, url_for, redirect
-from app import app
 from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
@@ -64,7 +63,7 @@ def sign_up():
             return render_template('sign_up.html', error="Passwords do not match.")
 
         if not -1 in [username, email, password, password2]:
-            # check if user exists
+            # check if user exsits
             user = User.query.filter_by(username=username).first()
 
             if not user:    # if user does not exist, then create
@@ -79,7 +78,6 @@ def sign_up():
                 db.session.commit()
                 return redirect(url_for('index'))
 
-            else:   # else, say it already exists
                 return render_template('sign_up.html', error="Username already taken.")
         else:
             return render_template('sign_up.html', error="Please complete the form.")
@@ -87,3 +85,8 @@ def sign_up():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
