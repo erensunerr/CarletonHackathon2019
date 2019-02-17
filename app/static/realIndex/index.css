@@ -1,3 +1,23 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('fonts/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('fonts/poppins/Poppins-SemiBold.ttf');
+}
+
 .container-login100 {
   width: 100%;
   min-height: 100vh;
@@ -32,5 +52,5 @@
   right: 25px;
   top:200px;
   color: white;
-  text-shadow: 
+  font-family: Poppins-SemiBold;
 }
