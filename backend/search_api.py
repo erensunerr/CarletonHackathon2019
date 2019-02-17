@@ -20,12 +20,13 @@ class searcher():
         end = ""
 
         if 'linux' in sys.platform:
-             platform = 'linux'
-        elif 'win' in sys.platform:
-             end = '.exe'
-             platform = 'win'
-        elif 'darwin' is sys.platform:
-             platform = 'mac'
+            platform = 'linux'
+        elif 'win' in sys.platform and 'dar' not in sys.platform:
+            end = '.exe'
+            platform = 'win'
+        elif 'dar' in sys.platform:
+            platform = 'mac'
+
 
         options = webdriver.ChromeOptions()
         if headless:
@@ -59,3 +60,4 @@ class searcher():
 
 s = searcher()
 s.upload_image('bottle.bmp')
+del s
