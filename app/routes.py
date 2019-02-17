@@ -16,17 +16,8 @@ def index():
 def photo_handle():
     #data = request.form.get("data", True)
     try:
-        print('photo handling')
-        null, data = request.form['data'].split(',', 1)
-        with open('log.txt', 'w') as fuckbase64:
-            fuckbase64.write(data)
-            fuckbase64.write('\n')
-        with open("imag.png", "wb") as fout:
-            fout.write(base64.b64decode(data))
-        data = request.form['uuaa']
+        data = request.form['nada']
         print("Request Received")
-        print(os.chdir('../images_backend'))
-        print('dir changed', os.getcwd())
         fo = open("img.png", "wb")
         print("img saved")
         data = base64.b64decode(data)
