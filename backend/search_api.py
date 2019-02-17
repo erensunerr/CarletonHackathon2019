@@ -11,7 +11,7 @@ class searcher():
         - Chrome Webdriver
     """
 
-    def __init__(self, headless=False):
+    def __init__(self, headless=True):
         os.chdir('../images_backend')
         self.image_dir = os.getcwd()
         print(self.image_dir)
@@ -30,7 +30,9 @@ class searcher():
 
         options = webdriver.ChromeOptions()
         if headless:
+            options.add_argument('--window-size=1920,1080')
             options.add_argument('headless')
+            options.add_argument('--start-maximized')
         self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver' + end, options=options)
 
 
@@ -77,6 +79,7 @@ print('opening shopping section')
 
 s.open_shopping_section()
 
+sleep(3)
 
 print('select lo2hi')
 
@@ -85,5 +88,7 @@ s.select_lo2hi()
 input()
 
 print('closing up')
+
+s.driver.save_screenshot('screened.png')
 
 del s
