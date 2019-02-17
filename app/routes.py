@@ -3,7 +3,8 @@ from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
 from datetime import datetime
-import base64, os
+import os
+from base64 import decodebytes
 
 
 @app.route('/')
@@ -15,17 +16,10 @@ def index():
 @app.route('/photo_handle', methods=["POST"])
 def photo_handle():
     #data = request.form.get("data", True)
-    try:
-        data = request.form['nada']
-        print("Request Received")
-        fo = open("img.png", "wb")
-        print("img saved")
-        data = base64.b64decode(data)
-        fo.write(data)
-        print('img written')
-        fo.close()
-    except:
-        pass
+
+    null, data = request.form['nada'].split(',', 1)
+    with open('crappic.png', 'wb') as fout:
+        fout.write(decodebytes(data))
     return "0"
 
 
@@ -106,6 +100,10 @@ def sign_up():
                 return render_template('sign_up.html', error="Username already taken.")
         else:
             return render_template('sign_up.html', error="Please complete the form.")
+
+@app.route('/camerabooth')
+def camerabooth():
+    return render_template('camerabooth.html')
 
 @app.route('/about')
 def about():
