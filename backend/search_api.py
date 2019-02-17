@@ -11,7 +11,7 @@ class searcher():
         - Chrome Webdriver
     """
 
-    def __init__(self, headless=False):
+    def __init__(self, headless=True):
         os.chdir('../images_backend')
         self.image_dir = os.getcwd()
         print(self.image_dir)
@@ -30,7 +30,9 @@ class searcher():
 
         options = webdriver.ChromeOptions()
         if headless:
+            options.add_argument('--window-size=1920,1080')
             options.add_argument('headless')
+            options.add_argument('--start-maximized')
         self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver' + end, options=options)
 
 
@@ -46,18 +48,49 @@ class searcher():
         self.upload_dialog = self.driver.find_elements_by_xpath("//input[@id=\"qbfile\" and @name=\"encoded_image\"]")[0]
 
 
+    def open_shopping_section(self):
+        shop_button = self.driver.find_element_by_xpath(".//a[text()=\"Shopping\" and @class=\"q qs\"]")
+        shop_button.click()
+
+
+    def select_lo2hi(self):
+        b1 = self.driver.find_element_by_xpath(".//span[@class=\"Yf5aUd\"]")
+        b1.click()
+        sleep(1)
+        self.driver.find_element_by_xpath(".//g-menu-item[.//div[text()=\"PRICE – LOW TO HIGH\"]]").click()
+
+
     def text(self):
         return self.driver.text
 
-    def upload_image(self,path):
+    def upload_image(self, path):
         try:
             self.upload_dialog
         except:
             self.__open_image_dialog()
-        self.upload_dialog.send_keys(self.image_dir+"/"+path)
-        sleep(10)
+        self.upload_dialog.send_keys(self.image_dir + "/" + path)
 
 
 s = searcher()
-s.upload_image('bottle.bmp')
+s.upload_image('duck.jpg')
+
+
+print('opening shopping section')
+
+s.open_shopping_section()
+
+sleep(3)
+
+print('select lo2hi')
+
+s.select_lo2hi()
+
+input()
+
+print('closing up')
+
+s.driver.save_screenshot('screened.png')
+
+
 del s
+
