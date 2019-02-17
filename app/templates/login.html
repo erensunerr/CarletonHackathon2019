@@ -50,9 +50,12 @@
 						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
+
+					{% if error %}
 					<div class="p-b-15">
 						<id class='errorLine'>{{error}}</id>
 					</div>
+					{% endif %}
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
