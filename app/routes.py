@@ -85,3 +85,8 @@ def sign_up():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
