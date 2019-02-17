@@ -12,36 +12,25 @@ class searcher():
     """
 
     def __init__(self, headless=False):
-
-
-
-        platform = ""
-
-
-        options = webdriver.ChromeOptions()
-        if headless:
-            options.add_argument('headless')
-
         os.chdir('../images_backend')
         self.image_dir = os.getcwd()
         print(self.image_dir)
 
-        print(sys.platform)
+        platform = ""
+        end = ""
+
         if 'linux' in sys.platform:
-            platform = 'linux'
-            self.driver = webdriver.Chrome('../webdriver/linux/chromedriver', options=options)
-
+             platform = 'linux'
         elif 'win' in sys.platform:
-            platform = 'win'
-            print(os.chdir('../webdriver/win'))
-            print(os.getcwd())
-            self.driver = webdriver.Chrome('chromedriver.exe',options=options)
-
+             end = '.exe'
+             platform = 'win'
         elif 'darwin' is sys.platform:
-            platform = 'mac'
-            self.driver = webdriver.Chrome('../webdriver/mac/chromedriver', options=options)
-        else:
-            raise Exception("Platform not found")
+             platform = 'mac'
+
+        options = webdriver.ChromeOptions()
+        if headless:
+            options.add_argument('headless')
+        self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver' + end, options=options)
 
 
     def __del__(self):
