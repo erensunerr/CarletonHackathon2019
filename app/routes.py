@@ -69,7 +69,7 @@ def sign_up():
             return render_template('sign_up.html', error="Passwords do not match.")
 
         if not -1 in [username, email, password, password2]:
-            # check if user exsits
+            # check if user exists
             user = User.query.filter_by(username=username).first()
 
             if not user:    # if user does not exist, then create
