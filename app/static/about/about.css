@@ -1,0 +1,22 @@
+body {
+  background-image: linear-gradient(to right, darkgrey , #333);
+}
+h1 {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+b {
+  font-family: courier;
+  font-size: 40px;
+}
+#eren:hover {
+    color: mintcream;
+}
+#allen:hover {
+    color: mintcream;
+}
+#oscar:hover {
+    color: mintcream;
+}
+#edwin:hover {
+    color: mintcream;
+}
