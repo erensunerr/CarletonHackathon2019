@@ -3,7 +3,7 @@ from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
 from datetime import datetime
-import base64
+import base64, os
 
 
 @app.route('/')
@@ -14,15 +14,18 @@ def index():
 
 @app.route('/photo_handle', methods=["POST"])
 def photo_handle():
+    #data = request.form.get("data", True)
     try:
-        null, data = request.form['data'].split(',', 1)
-        data = data.replace(' ', '')
-        data = data.replace('\n', '')
-        with open('log.txt', 'w') as fuckbase64:
-            fuckbase64.write(data)
-            fuckbase64.write('\n')
-        with open("img-" + str(datetime.utcnow()) + ".png", "wb") as fout:
-            fout.write(base64.b64decode(data))
+        data = request.form['uuaa']
+        print("Request Received")
+        print(os.chdir('../images_backend'))
+        print('dir changed', os.getcwd())
+        fo = open("img.png", "wb")
+        print("img saved")
+        data = base64.b64decode(data)
+        fo.write(data)
+        print('img written')
+        fo.close()
     except:
         pass
     return "0"
@@ -50,8 +53,8 @@ def login():
         if username != -1 and password != -1:
             user = User.query.filter_by(username=username).first()
             if user and user.check_password(password):
-                login_user()
-                print('attempted to log in user')
+                print("User logged in, ", user)
+                login_user(user)
             else:
                 return render_template('login.html', error="Invalid password or username.")
     return redirect(url_for('index'))
@@ -115,8 +118,3 @@ def form():
 @app.route('/base')
 def base():
     return render_template('base.html')
-
-
-@app.route('/realIndex', methods=["GET", "POST"])
-def realIndex():
-    return render_template('realIndex.html')

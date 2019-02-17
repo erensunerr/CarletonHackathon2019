@@ -70,8 +70,16 @@ class searcher():
             self.__open_image_dialog()
         self.upload_dialog.send_keys(self.image_dir + "/" + path)
 
+    def find_products(self):
+        q = []
+        products = self.driver.find_elements_by_xpath('//div[@class=\"uMfazd\"]')
+        for prod in products:
+            for i in range(3):
+                link = prod.find_elements_by_xpath("//a[@class=\"EI11Pd p7n7Ze\" and @data-what=\"1\"]")[i]
+                q += [link.get_attribute('href')]
+        return list(set(q))
 
-s = searcher()
+s = searcher(headless=False)
 s.upload_image('duck.jpg')
 
 
@@ -85,12 +93,9 @@ print('select lo2hi')
 
 s.select_lo2hi()
 
-input()
 
-print('closing up')
+print(s.find_products())
 
 s.driver.save_screenshot('screened.png')
 
-
 del s
-
