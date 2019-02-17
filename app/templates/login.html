@@ -32,7 +32,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('../static/login/images/bg-01.jpg')">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
+				<form class="login100-form validate-form" method="POST" action='/login_handle'>
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -51,7 +51,7 @@
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 					<div class="p-b-15">
-						<id class='errorLine'>Password is Incorrect</id>
+						<id class='errorLine'>{{error}}</id>
 					</div>
 					<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">

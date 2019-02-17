@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, url_for, redirect
 from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
@@ -8,7 +8,12 @@ from app.models import User
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=["POST","GET"])
+@app.route('/login', methods=["GET"])
+def display_login():
+    return render_template('login.html')
+
+
+@app.route('/login_handle', methods=["POST","GET"])
 def login():
     username, password = -1,-1
     if current_user.is_authenticated:
