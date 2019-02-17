@@ -3,6 +3,10 @@
 <head>
   <title></title>
   <style>
+    @font-face {
+      font-family: Poppins-SemiBold;
+      src: url("../static/login/fonts/poppins/Poppins-SemiBold.ttf");
+    }
     #home {
           width: 20px;
           height: 20px;
@@ -16,6 +20,7 @@
           background-color: #333;
     }
     li {
+        font-family: Poppins-SemiBold;
         float: left;
     }
     li a {
@@ -51,18 +56,18 @@
     }
 
     .tinylogos {
-      height: 20px;
-      width: 20px;
+      height: 45px;
+      width: 45px;
     }
   </style>
 </head>
 <body>
   <ul>
-    <li><a href="base.html"><img src="../static/home.png" id="home"></a></li>
-    <li><a href="index.html">Photo BOOTH</a></li>
-    <li><a href="about.html">ABOUT US</a></li>
-    <li><a href="login.html">REGISTER/LOG IN</a></li>
-    <li><a href="form.html">CONTACT US</a></li>
+    <li><a href="base"><img src="../static/home.png" id="home"></a></li>
+    <li><a href="index">Photo BOOTH</a></li>
+    <li><a href="about">ABOUT US</a></li>
+    <li><a href="login">REGISTER/LOG IN</a></li>
+    <li><a href="form">CONTACT US</a></li>
   </ul>
 
   <form>
@@ -110,7 +115,7 @@
     <br>
   </form>
   <div class="footer">
-    <p id="ending" align="right">REACH US!&nbsp;&nbsp;&nbsp;<img class="tinylogos" onclick="window.location.href = 'https://www.instagram.com/_allentao_/'" src="../static/insta.png"> <img class="tinylogos" onclick="window.location.href = 'https://www.facebook.com'" src="../static/facebook.png"> <img class="tinylogos" onclick="window.location.href = 'https://www.twitter.com'" src="../static/twitter.png"></p>
+   <img class="tinylogos" onclick="window.location.href = 'https://www.instagram.com/_allentao_/'" src="../static/insta.png"> <img class="tinylogos" onclick="window.location.href = 'https://www.facebook.com'" src="../static/facebook.png"> <img class="tinylogos" onclick="window.location.href = 'https://www.twitter.com'" src="../static/twitter.png">
   </div>
 </body>
 </html>
