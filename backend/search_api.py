@@ -46,6 +46,11 @@ class searcher():
         self.upload_dialog = self.driver.find_elements_by_xpath("//input[@id=\"qbfile\" and @name=\"encoded_image\"]")[0]
 
 
+    def open_shopping_section(self):
+        shop_button = self.driver.find_element_by_xpath(".//a[text()=\"Shopping\" and @class=\"q qs\"]")
+        shop_button.click()
+
+
     def text(self):
         return self.driver.text
 
@@ -55,9 +60,19 @@ class searcher():
         except:
             self.__open_image_dialog()
         self.upload_dialog.send_keys(self.image_dir+"/"+path)
-        input()
 
 
 s = searcher()
-s.upload_image('teddybear.jpg')
+s.upload_image('duck.jpg')
+
+input()
+
+print('opening shopping section')
+
+s.open_shopping_section()
+
+input()
+
+print('closing up')
+
 del s
