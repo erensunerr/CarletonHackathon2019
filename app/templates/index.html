@@ -156,7 +156,9 @@
             var imageDataURL = canvas.toDataURL('image/png');
             var req = new XMLHttpRequest();
             req.open('POST', 'photo_handle', true);
-            req.send("data="+imageDataURL)
+            req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+            req.send("data="+imageDataURL);
+
         });
     </script>
 </body>

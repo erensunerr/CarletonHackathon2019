@@ -14,13 +14,26 @@ def index():
 
 @app.route('/photo_handle', methods=["POST"])
 def photo_handle():
-    data = request.form.get("data", True)
-    #data = request.form['data']
-    print((data))
-    fout = open("img-" + str(datetime.utcnow()), "wb")
-    data = base64.b64decode(data)
-    fout.write(data)
-    fout.close()
+<<<<<<< HEAD
+    try:
+        data = request.form['data']
+        print('here is DATA:   ', data)
+        fout = open("img-" + str(datetime.utcnow()) + ".png", "wb")
+        data = base64.b64decode(data)
+        print('here is decoded DATA:   ', data)
+=======
+    #data = request.form.get("data", True)
+    try:
+        data = request.form['data']
+        print(data)
+        fout = open("img-" + str(datetime.utcnow()) + ".png", "wb")
+        data = base64.b64decode(data)
+        print(data)
+>>>>>>> d1845102371a118138cd25f243a07ffd6ad3372c
+        fout.write(data)
+        fout.close()
+    except:
+        pass
     return "0"
 
 
