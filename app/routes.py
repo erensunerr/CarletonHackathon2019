@@ -16,6 +16,13 @@ def index():
 def photo_handle():
     #data = request.form.get("data", True)
     try:
+        print('photo handling')
+        null, data = request.form['data'].split(',', 1)
+        with open('log.txt', 'w') as fuckbase64:
+            fuckbase64.write(data)
+            fuckbase64.write('\n')
+        with open("imag.png", "wb") as fout:
+            fout.write(base64.b64decode(data))
         data = request.form['uuaa']
         print("Request Received")
         print(os.chdir('../images_backend'))
@@ -34,6 +41,8 @@ def photo_handle():
 
 @app.route('/login', methods=["GET"])
 def display_login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('login.html')
 
 
@@ -61,6 +70,8 @@ def login():
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def display_sign_up():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     return render_template('sign_up.html')
 
 @app.route('/sign_up_handle', methods=['GET', 'POST'])
