@@ -91,4 +91,6 @@ print('closing up')
 
 s.driver.save_screenshot('screened.png')
 
+
 del s
+
