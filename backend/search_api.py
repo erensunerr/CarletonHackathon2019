@@ -11,20 +11,24 @@ class searcher():
         - Chrome Webdriver
     """
 
-    def __init__(self):
+    def __init__(self, headless=False):
         os.chdir('../images_backend')
         self.image_dir = os.getcwd()
         print(self.image_dir)
+
+        platform = ""
+
         if 'linux' in sys.platform:
-             os.chdir('../webdriver/linux')
-        elif 'win' in sys.platform:
-             os.chdir('../webdriver/win')
+             platform = 'linux'
+        elif 'wind' in sys.platform:
+             platform = 'win'
         elif 'darwin' in sys.platform:
-             os.chdir('../webdriver/mac')
+             platform = 'mac'
 
         options = webdriver.ChromeOptions()
-        #options.add_argument('headless')
-        self.driver = webdriver.Chrome(options=options)
+        if headless:
+            options.add_argument('headless')
+        self.driver = webdriver.Chrome('../webdriver/' + platform + '/chromedriver', options=options)
 
 
     def __del__(self):
@@ -47,9 +51,11 @@ class searcher():
             self.upload_dialog
         except:
             self.__open_image_dialog()
-        self.upload_dialog.send_keys(self.image_dir+"\\"+path)
+        self.upload_dialog.send_keys(self.image_dir+"/"+path)
         sleep(10)
 
 
 s = searcher()
 s.upload_image('bottle.bmp')
+
+
