@@ -61,6 +61,10 @@ def sign_up():
         except:
             pass
 
+        # 'validate' email
+        if not all(s in email for s in ['@', '.']):
+            return render_template('sign_up.html', error="Invalid email.")
+
         if not password == password2:
             return render_template('sign_up.html', error="Passwords do not match.")
 
