@@ -11,13 +11,15 @@ import base64
 def index():
     return render_template('index.html')
 
-@app.route('/photo_handle')
+
+@app.route('/photo_handle', methods=["POST"])
 def photo_handle():
     data = request.form["data"]
-    file = open("img-"+datetime.utcnow(), "w")
+    print('made past that request!!!!!!')
+    fout = open("img-" + datetime.utcnow(), "wb")
     data = base64.b64decode(data)
-    file.write(data)
-    file.close()
+    fout.write(data)
+    fout.close()
     return "0"
 
 
