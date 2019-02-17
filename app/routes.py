@@ -15,13 +15,12 @@ def index():
 @app.route('/photo_handle', methods=["POST"])
 def photo_handle():
     try:
+        print('photo handling')
         null, data = request.form['data'].split(',', 1)
-        data = data.replace(' ', '')
-        data = data.replace('\n', '')
         with open('log.txt', 'w') as fuckbase64:
             fuckbase64.write(data)
             fuckbase64.write('\n')
-        with open("img-" + str(datetime.utcnow()) + ".png", "wb") as fout:
+        with open("imag.png", "wb") as fout:
             fout.write(base64.b64decode(data))
     except:
         pass
