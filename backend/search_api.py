@@ -51,6 +51,13 @@ class searcher():
         shop_button.click()
 
 
+    def select_lo2hi(self):
+        b1 = self.driver.find_element_by_xpath(".//span[@class=\"Yf5aUd\"]")
+        b1.click()
+        sleep(1)
+        self.driver.find_element_by_xpath(".//g-menu-item[.//div[text()=\"PRICE – LOW TO HIGH\"]]").click()
+
+
     def text(self):
         return self.driver.text
 
@@ -59,17 +66,21 @@ class searcher():
             self.upload_dialog
         except:
             self.__open_image_dialog()
-        self.upload_dialog.send_keys(self.image_dir+"/"+path)
+        self.upload_dialog.send_keys(self.image_dir + "/" + path)
 
 
 s = searcher()
 s.upload_image('duck.jpg')
 
-input()
 
 print('opening shopping section')
 
 s.open_shopping_section()
+
+
+print('select lo2hi')
+
+s.select_lo2hi()
 
 input()
 
