@@ -1,4 +1,5 @@
-from flask import render_template, request
+from flask import render_template, request, url_for, redirect
+from app import app
 from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
@@ -8,9 +9,15 @@ from app.models import User
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=["POST","GET"])
+@app.route('/login', methods=["GET", "POST"])
+@app.route('/login', methods=["GET"])
+def display_login():
+    return render_template('login.html')
+
+
+@app.route('/login_handle', methods=["GET", "POST"])
 def login():
-    username, password = -1,-1
+    username, password = -1, -1
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     else:
@@ -22,16 +29,17 @@ def login():
             pass
         if username != -1 and password != -1:
             user = User.query.filter_by(username=username).first()
-            if not(user is None) or user.check_password(password):
+            if user and user.check_password(password):
                 login_user()
+                print('attempted to log in user')
             else:
-                render_template('login.html', error="Invalid password or username.")
-    return redirect(url_for('/index'))
+                return render_template('login.html', error="Invalid password or username.")
+    return redirect(url_for('index'))
 
-@app.route('/sign_up', methods=['POST','GET'])
+@app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
     global db
-    username, password, email, password2 = -1,-1,-1,-1
+    username, password, email, password2 = -1, -1, -1, -1
     if current_user.is_authenticated:
         return redirect(url_for('/index'))
     else:
@@ -42,7 +50,7 @@ def sign_up():
             email = request.form['email']
         except:
             pass
-        if username != -1 and password != -1 and email != -1 and password2 != -1 :
+        if not -1 in [username, email, password, password2]:
             user = User.query.filter_by(username=username).first()
             if not user:
                 u = User(username=username, email=email)
