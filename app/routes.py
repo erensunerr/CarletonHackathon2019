@@ -16,7 +16,7 @@ def index():
 def photo_handle():
     data = request.form["data"]
     print('made past that request!!!!!!')
-    fout = open("img-" + datetime.utcnow(), "wb")
+    fout = open("img-" + str(datetime.utcnow()) + '.png', "wb")
     data = base64.b64decode(data)
     fout.write(data)
     fout.close()
