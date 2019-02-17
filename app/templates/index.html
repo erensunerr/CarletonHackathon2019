@@ -143,6 +143,10 @@
         // Trigger photo take
         document.getElementById("snap").addEventListener("click", function() {
             context.drawImage(video, 0, 0, 640, 480);
+            var imageDataURL = canvas.toDataURL('image/png');
+            var req = new XMLHttpRequest();
+            req.open('POST', '/photo_handle', true);
+            req.send("data="+imageDataURL)
         });
     </script>
 </body>

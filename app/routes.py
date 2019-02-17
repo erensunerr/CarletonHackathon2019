@@ -2,11 +2,24 @@ from flask import render_template, request, url_for, redirect
 from app import app, db
 from flask_login import current_user, login_user
 from app.models import User
+from datetime import datetime
+import base64
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html')
+
+@app.route('/photo_handle')
+def photo_handle():
+    data = request.form["data"]
+    file = open("img-"+datetime.utcnow(), "w")
+    data = base64.b64decode(data)
+    file.write(data)
+    file.close()
+    return "0"
+
 
 
 @app.route('/login', methods=["GET"])
