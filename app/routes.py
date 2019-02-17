@@ -70,6 +70,10 @@ def sign_up():
 
             if not user:    # if user does not exist, then create
                 # this path leads to success
+
+                if User.query.filter_by(email=email).first():   # if email already exists...
+                    return render_template('sign_up.html', error="There is already an account with that email.")
+
                 u = User(username=username, email=email)
                 u.set_password(password)
                 db.session.add(u)
