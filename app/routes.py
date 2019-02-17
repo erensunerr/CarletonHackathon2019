@@ -116,6 +116,10 @@ def sign_up():
         else:
             return render_template('sign_up.html', error="Please complete the form.")
 
+@app.route('/camerabooth')
+def camerabooth():
+    return render_template('camerabooth.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
